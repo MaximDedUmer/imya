@@ -1,0 +1,122 @@
+html
+	{
+		margin: 0;
+		padding: 0;
+	}
+body
+	{
+		margin: 0;	
+		font-family:arsenal-regular;
+	}
+a
+	{
+		text-decoration: none;
+	}
+@font-face
+	{
+		src: url(..\shrift\arsenal-regular.woff2);
+	}
+:root
+	{
+		--Color:#141414;
+		--FontSize:calc(1vw+1vh);
+		--transition:1.25s cubic-bezier(.2, .5, 0, 1);
+		--transition-cursor:2s cubic-bezier(.05, .5, 0, 1);
+
+	}
+sup
+	{
+		font-size: calc(1vh + 10pt);
+	}
+
+
+
+
+
+
+
+#palka
+	{
+		height: 2px;
+		background-color: var(--Color);
+		margin-top: calc(5vh + 20px);
+	}
+.NePalka
+	{
+
+	}
+#magic-list
+	{
+		margin: 30px calc(5vw + 30px) 30px 0px;
+	}
+.magic-list__item
+	{
+		
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+.magic-list__cifra-long
+	{
+	margin-bottom: calc(2vh + 55px);
+		
+	}
+.magic-list__cifra
+	{
+	margin-bottom: calc(2vh + 5px);
+		
+	}
+.govno
+	{
+		margin-left: calc(5vw + 30px);
+		transition: 0.3s;
+	}
+.govno:hover
+	{
+		margin-left:0;
+		transition: 0.3s;
+		cursor: url('../IMG/1.jpg'), pointer;
+
+	}
+.magic-list__header
+	{
+		transition: transform var(--transition);
+		font-size: calc(3vh + 20pt);
+		margin: calc(5vh + 30px) 0px;
+	}
+.magic-list__item::before
+	{
+		transition: transform var(--transition);
+	}
+.cursor
+	{
+		transition: transform var(--transition-cursor), height 1s ease;
+		cursor: url('../IMG/1.jpg'), pointer;
+		background-image:url('../IMG/1.jpg');
+	}
+.cursor__image
+	{
+		transition: transform var(--transition-cursor);
+		cursor: url('../IMG/1.jpg'), pointer;
+	}
+
+
+
+.magic-list__item:hover .magic-list-header, .magic-list-item:hover::before
+	{
+		cursor: url('../IMG/1.jpg'), pointer;
+	}	
+.magic-list__item:first-child
+	{
+	cursor: url('../IMG/1.jpg'), pointer;
+	}
+.magic-list__item:hover .cursor
+	{
+	cursor: url('../IMG/1.jpg'), pointer;
+	}
+.magic-list__item:hover .cursor__image	
+	{
+	cursor: url('../IMG/1.jpg'), pointer;
+	}
+
+/*хз как картинку делать*/
