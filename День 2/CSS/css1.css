@@ -1,20 +1,23 @@
+@font-face
+	{
+		font-family: "arsenal-regular";
+		src: url(../shrift/arsenal-regular.woff2) format("woff");
+	}
+* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
 html
 	{
 		margin: 0;
 		padding: 0;
+		font-family:"arsenal-regular";
 	}
 body
 	{
 		margin: 0;	
-		font-family:arsenal-regular;
-	}
-a
-	{
-		text-decoration: none;
-	}
-@font-face
-	{
-		src: url(..\shrift\arsenal-regular.woff2);
+		
 	}
 :root
 	{
@@ -28,95 +31,113 @@ sup
 	{
 		font-size: calc(1vh + 10pt);
 	}
-
-
-
-
-
-
-
 #palka
 	{
-		height: 2px;
+		height: 3px;
 		background-color: var(--Color);
-		margin-top: calc(5vh + 20px);
+		margin:calc(5vh + 20px) calc(5vw + 30px) 0 calc(5vw + 30px);
 	}
 .NePalka
 	{
-
+		margin: 0 calc(5vw + 30px);
+		height: 1px;
 	}
 #magic-list
 	{
-		margin: 30px calc(5vw + 30px) 30px 0px;
+		margin: 30px 0px 30px 0px;
 	}
 .magic-list__item
 	{
-		
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 	}
 .magic-list__cifra-long
 	{
-	margin-bottom: calc(2vh + 55px);
-		
+	margin-bottom: calc(8vh + 40px);
 	}
 .magic-list__cifra
 	{
-	margin-bottom: calc(2vh + 5px);
-		
+	margin-bottom: calc(1vh + 10px);
 	}
 .govno
 	{
-		margin-left: calc(5vw + 30px);
+		margin-left: calc(10vw + 30px);
 		transition: 0.3s;
 	}
 .govno:hover
 	{
-		margin-left:0;
+		margin-left:calc(5vw + 30px);
 		transition: 0.3s;
-		cursor: url('../IMG/1.jpg'), pointer;
-
 	}
 .magic-list__header
 	{
 		transition: transform var(--transition);
-		font-size: calc(3vh + 20pt);
+		font-size: calc(5vh + 20pt);
 		margin: calc(5vh + 30px) 0px;
 	}
 .magic-list__item::before
 	{
 		transition: transform var(--transition);
+		transition-delay: .025s;
+		will-change: transform;
 	}
-.cursor
-	{
-		transition: transform var(--transition-cursor), height 1s ease;
-		cursor: url('../IMG/1.jpg'), pointer;
-		background-image:url('../IMG/1.jpg');
-	}
-.cursor__image
-	{
-		transition: transform var(--transition-cursor);
-		cursor: url('../IMG/1.jpg'), pointer;
-	}
-
-
-
 .magic-list__item:hover .magic-list-header, .magic-list-item:hover::before
 	{
-		cursor: url('../IMG/1.jpg'), pointer;
+		
+		transform: translate3d(calc(var(--FontSize) * -5), 0, 0);
 	}	
-.magic-list__item:first-child
+.magic-list__item:hover .cursor__image
 	{
-	cursor: url('../IMG/1.jpg'), pointer;
-	}
-.magic-list__item:hover .cursor
-	{
-	cursor: url('../IMG/1.jpg'), pointer;
-	}
-.magic-list__item:hover .cursor__image	
-	{
-	cursor: url('../IMG/1.jpg'), pointer;
+		transform: var(--cursor-transform) scale(1);
 	}
 
-/*хз как картинку делать*/
+/*/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/*/
+.magic-list {
+	font-family: arsenal_f, sans-serif;
+	font-size: calc(var(--FontSize) * 2.75);
+	padding: calc(var(--FontSize) * 2.75);
+}
+.magic-list__item {
+	cursor: none;
+	color: var(--Color);
+	text-decoration: none;
+	counter-increment: my-counter;
+}
+.magic-list__item:first-child {
+	border-top: 1.5px solid var(--black);
+}
+.magic-list__header {
+	width: min-content;
+	transition: transform var(--transition);
+	will-change: transform;
+}
+.cursor {
+	--width: calc(var(--FontSize) * 22);
+	--height: calc(var(--FontSize) * 14);
+	position: fixed;
+	width: var(--width);
+	height: 0;
+	top: calc(var(--height) * -.5);
+	left: calc(var(--width) * -.5);
+	overflow: hidden;
+	transform: translate3d(var(--move-x), var(--move-y), 0);
+	transition: transform var(--transition-cursor), height 1s ease;
+	z-index: -1;
+	will-change: transform;
+}
+.magic-list__item:hover .cursor {
+	height: var(--height);
+}
+.cursor__image {
+	--cursor-transform: translate3d(calc(var(--move-x) / -5), calc(var(--move-y) / -5), 0);
+	position: relative;
+	width: calc(var(--width) * 2);
+	height: calc(var(--height) * 2);
+	top: calc(var(--height) * -.4);
+	left: calc(var(--width) * -.25);
+	background-size: cover;
+	background-position: center;
+	transform: var(--cursor-transform) scale(1.5);
+	transition: transform var(--transition-cursor);
+}
