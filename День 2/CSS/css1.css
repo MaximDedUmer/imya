@@ -113,8 +113,8 @@ sup
 	will-change: transform;
 }
 .cursor {
-	--width: calc(var(--FontSize) * 22);
-	--height: calc(var(--FontSize) * 14);
+	--width: calc(var(--FontSize) * 30);
+	--height: calc(var(--FontSize) * 20);
 	position: fixed;
 	width: var(--width);
 	height: 0;
